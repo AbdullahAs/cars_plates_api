@@ -206,11 +206,16 @@ GEM
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     unicode-display_width (1.0.2)
+    versionist (1.4.1)
+      activesupport (>= 3)
+      railties (>= 3)
+      yard (~> 0.7)
     warden (1.2.6)
       rack (>= 1.0)
     websocket-driver (0.6.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    yard (0.8.7.6)
 
 PLATFORMS
   ruby
@@ -240,6 +245,7 @@ DEPENDENCIES
   shoulda-matchers
   spring
   spring-watcher-listen (~> 2.0.0)
+  versionist
 
 BUNDLED WITH
    1.11.2

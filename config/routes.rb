@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  api_version(module: "V1", header: {name: "Accept", value: "application/vnd.carsplates.com; version=1"}, default: true ) do
 
-  # Serve websocket cable requests in-process
-  # mount ActionCable.server => '/cable'
+  end
 end
