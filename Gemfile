@@ -37,7 +37,7 @@ group :development do
   gem 'capistrano-passenger'
 end
 
-gem 'active_model_serializers'
+gem 'active_model_serializers', git: 'git@github.com:rails-api/active_model_serializers.git', branch: '0-8-stable'
 gem 'devise', git: 'git@github.com:plataformatec/devise.git'
 gem 'kaminari'
 gem 'delayed_job_active_record'

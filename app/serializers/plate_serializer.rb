@@ -14,18 +14,6 @@
 #  sold           :boolean          default(FALSE)
 #
 
-require 'spec_helper'
-
-describe Plate do
-  let(:plate) { FactoryGirl.build :plate }
-  subject { plate }
-
-  it { should respond_to :letters_en }
-  it { should respond_to :letters_ar }
-  it { should respond_to :numbers }
-  it { should respond_to :min_price }
-  it { should respond_to :bid_date_hejri }
-  it { should respond_to :bid_date_greg }
-
-  it { should_not be_sold }
+class PlateSerializer < ActiveModel::Serializer
+  attributes :id, :letters_en, :letters_ar, :numbers, :min_price, :bid_date_greg, :bid_date_hejri, :sold
 end
