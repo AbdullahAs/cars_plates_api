@@ -9,7 +9,8 @@ gem 'pg'
 gem 'puma'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  # Call 'byebug' anywhere in the code to stop execution and get a
+  # debugger console
   gem 'byebug'
   gem "factory_girl_rails"
   gem 'ffaker'
@@ -24,7 +25,8 @@ end
 
 group :development do
   gem 'listen', '~> 3.0.5'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  # Spring speeds up development by keeping your application running in the
+  # background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'annotate'
@@ -37,9 +39,18 @@ group :development do
   gem 'capistrano-passenger'
 end
 
-gem 'active_model_serializers', git: 'git@github.com:rails-api/active_model_serializers.git', branch: '0-8-stable'
+gem 'active_model_serializers',
+  git: 'git@github.com:rails-api/active_model_serializers.git',
+  branch: '0-8-stable'
 gem 'devise', git: 'git@github.com:plataformatec/devise.git'
 gem 'kaminari'
 gem 'delayed_job_active_record'
 gem "figaro"
 gem 'versionist'
+
+# HTTP (The Gem! a.k.a. http.rb) - a fast Ruby HTTP client with a chainable API,
+#  streaming support, and timeouts
+gem "http"
+
+# Converter:Gregorian to Hijri Date and vice versa
+gem 'hijri2greg_date'

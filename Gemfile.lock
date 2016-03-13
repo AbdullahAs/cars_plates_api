@@ -104,6 +104,7 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    addressable (2.4.0)
     annotate (2.7.0)
       activerecord (>= 3.2, < 6.0)
       rake (~> 10.4)
@@ -139,6 +140,8 @@ GEM
       activerecord (>= 3.0, < 5)
       delayed_job (>= 3.0, < 5)
     diff-lcs (1.2.5)
+    domain_name (0.5.20160309)
+      unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
@@ -151,6 +154,16 @@ GEM
       thor (~> 0.14)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    hijri2greg_date (0.0.4)
+    http (1.0.2)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (~> 1.0.1)
+      http_parser.rb (~> 0.6.0)
+    http-cookie (1.0.2)
+      domain_name (~> 0.5)
+    http-form_data (1.0.1)
+    http_parser.rb (0.6.0)
     i18n (0.7.0)
     json (1.8.3)
     kaminari (0.16.3)
@@ -243,6 +256,9 @@ GEM
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.2)
     unicode-display_width (1.0.2)
     versionist (1.4.1)
       activesupport (>= 3)
@@ -273,6 +289,8 @@ DEPENDENCIES
   factory_girl_rails
   ffaker
   figaro
+  hijri2greg_date
+  http
   kaminari
   listen (~> 3.0.5)
   pg
