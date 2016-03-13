@@ -16,7 +16,9 @@ group :development, :test do
 end
 
 group :test do
-  gem "rspec-rails", "~> 2.14"
+  %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+    gem lib, :git => "https://github.com/rspec/#{lib}.git", :branch => 'master'
+  end
   gem 'shoulda-matchers'
 end
 
