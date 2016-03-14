@@ -4,6 +4,7 @@ require 'capistrano/deploy'
 
 require 'capistrano/bundler'
 require 'capistrano/rvm'
+require 'capistrano/rails'
 require 'capistrano/passenger'
 require "whenever/capistrano"
 
