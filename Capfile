@@ -7,7 +7,7 @@ require 'capistrano/rvm'
 require 'capistrano/rails/migrations'
 require 'capistrano/rails/collection'
 require 'capistrano-db-tasks'
-require 'capistrano/figaro'
+require 'capistrano/figaro_yml'
 require 'capistrano/passenger'
 require "whenever/capistrano"
 

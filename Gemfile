@@ -40,7 +40,7 @@ group :development do
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-rails-collection'
   gem "capistrano-db-tasks", require: false
-  gem 'capistrano-figaro'
+  gem 'capistrano-figaro-yml', '~> 1.0.2'
 end
 
 gem 'active_model_serializers',
