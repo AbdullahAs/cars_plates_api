@@ -36,6 +36,7 @@ group :development do
   gem 'capistrano-rvm',     require: false
   gem 'capistrano-bundler'
   gem 'capistrano-passenger'
+  gem 'capistrano-rails', '~> 1.1'
 end
 
 gem 'listen', '~> 3.0.5'
