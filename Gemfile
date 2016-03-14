@@ -24,6 +24,7 @@ group :test do
 end
 
 group :development do
+  gem 'listen', '~> 3.0.5'
   # Spring speeds up development by keeping your application running in the
   # background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -37,9 +38,11 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano-passenger'
   gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-rails-collection'
+  gem "capistrano-db-tasks", require: false
+  gem 'capistrano-figaro'
 end
 
-gem 'listen', '~> 3.0.5'
 gem 'active_model_serializers',
   git: 'git@github.com:rails-api/active_model_serializers.git',
   branch: '0-8-stable'

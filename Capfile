@@ -5,6 +5,9 @@ require 'capistrano/deploy'
 require 'capistrano/bundler'
 require 'capistrano/rvm'
 require 'capistrano/rails/migrations'
+require 'capistrano/rails/collection'
+require 'capistrano-db-tasks'
+require 'capistrano/figaro'
 require 'capistrano/passenger'
 require "whenever/capistrano"
 
