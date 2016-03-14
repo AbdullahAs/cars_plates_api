@@ -25,7 +25,7 @@ class FetchPlates
     response = Nokogiri::HTML(HTTP.get(ENV['gov_com_sa_url']).to_s)
     plates = response.css('div#contentspan')[0].css('tr')
   rescue Exception => e
-    @log.info "ERROR: #{e}"
+    @log.info "ERROR in parse_response: #{e}"
     retry unless (tries -= 1).zero?
   else
     @log.info "#{Time.now} : responde from gov.com.sa successfuly received"
@@ -43,7 +43,7 @@ class FetchPlates
       letters_ar = plate.css('td')[0].text
       numbers = plate.css('td')[1].text
       min_price = plate.css('td')[2].text
-      bid_date_hejri = Date.parse(plate.css('td')[4].text.gsub!(" هـ", ""))
+      bid_date_hejri = Date.parse(plate.css('td')[4].text.gsub!("هـ", ""))
       bid_date_greg = bid_date_hejri.to_greg
       plates_hash["plate_#{plateNumber-2}"] =  {
                           letters_ar: letters_ar,
@@ -52,6 +52,9 @@ class FetchPlates
                           bid_date_hejri: bid_date_hejri,
                           bid_date_greg: bid_date_greg }
     end
+  rescue Exception => e
+    @log.info "ERROR in get_data: #{e}"
+  else
     @log.info "#{Time.now} : plates deatils successfuly parsed into a hash"
     @log.info "#{plates_hash}"
     plates_hash

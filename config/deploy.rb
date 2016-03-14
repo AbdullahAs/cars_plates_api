@@ -13,4 +13,6 @@ set :branch, "master"
 set :pty, true
 set :format, :pretty
 
-after 'deploy', 'deploy:cleanup'
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
+
+# after 'deploy', 'deploy:cleanup'

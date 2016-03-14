@@ -54,3 +54,9 @@ gem "http"
 
 # Converter:Gregorian to Hijri Date and vice versa
 gem 'hijri2greg_date'
+
+# Database based asynchronous priority queue system
+# gem 'delayed_job_active_record'
+
+# Cron jobs in Ruby
+gem 'whenever', :require => false
