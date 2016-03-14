@@ -17,6 +17,8 @@ class FetchPlates
     response = parse_response
     plates = get_data(response)
     update_db(plates) unless is_plate_already_esists? plates["plate_#{1}"][:bid_date_greg]
+  rescue Exception => e
+    @log.info "ERROR in main task: #{e}"
   end
 
   # call the Gov.com.sa site to get the latest plates and parse the HTML
