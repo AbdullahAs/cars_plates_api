@@ -15,4 +15,12 @@
 #
 
 class Plate < ApplicationRecord
+
+  scope :recent, -> {
+    where("bid_date_greg = ?", Plate.last.bid_date_greg)
+  }
+
+  scope :available, -> {
+    where("sold = ?", false)
+  }
 end
