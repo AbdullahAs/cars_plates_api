@@ -49,7 +49,55 @@ describe '.available' do
     @plate2 = FactoryGirl.create :plate, sold: false
   end
 
-  it 'should only return plates which are not sold yet' do
+  it 'returns only plates which are not sold yet' do
     expect(Plate.available).to match_array([@plate2])
   end
+end
+
+# describe '.equal_or_less' do
+#   before do
+#     @plate1 = FactoryGirl.create :plate, min_price: 500
+#     @plate2 = FactoryGirl.create :plate, min_price: 300
+#   end
+
+#   it 'returns plates equal or less than 300' do
+#     expect(Plate.equal_or_less(300)).to match_array([@plate2])
+#   end
+# end
+
+describe '.search' do
+  before do
+    @plate1 = FactoryGirl.create :plate,  letters_en: 'A A A',
+                                          letters_ar: 'ا ي س',
+                                          min_price: 300
+    @plate2 = FactoryGirl.create :plate,  letters_en: 'B B B',
+                                          letters_ar: 'ب ص ف',
+                                          min_price: 500
+    @plate3 = FactoryGirl.create :plate,  letters_en: 'A K J',
+                                          letters_ar: 'ا ي س',
+                                          min_price: 300
+    @plate4 = FactoryGirl.create :plate,  letters_en: 'L Y A',
+                                          letters_ar: 'ي ض ف',
+                                          min_price: 1000
+  end
+
+  context 'when arabic letters is passed' do
+
+    it 'return emptay array if letters doesnt match any recprd' do
+      search_hash = { letters_ar: 'ف ي س' }
+      expect(Plate.search(search_hash)).to be_empty
+    end
+
+    it 'returns the plates with same letters' do
+      search_hash = { letters_ar: 'ا ي س'}
+      expect(Plate.search(search_hash)).to match_array([@plate1, @plate3])
+    end
+  end
+
+  # context 'when max price is passed' do
+  #   it 'returns the plates with price equal or less than price' do
+  #     search_hash = { max_price: '300'}
+  #     expect(Plate.search(search_hash)).to match_array([@plate1, @plate3])
+  #   end
+  # end
 end

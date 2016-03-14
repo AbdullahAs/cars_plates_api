@@ -23,4 +23,17 @@ class Plate < ApplicationRecord
   scope :available, -> {
     where("sold = ?", false)
   }
+
+  # not avilable now sinc the numbers is string
+  # scope :equal_or_less, lambda { |price|
+  #   where("min_price <= ?", price)
+  # }
+
+  def self.search(params = {})
+    plates = Plate.all
+    plates = plates.where(letters_ar: params[:letters_ar]) if params[:letters_ar].present?
+    # plates = plates.equal_or_less if params[:max_price].present?
+    plates = plates.available if params[:available].present?
+    plates
+  end
 end
