@@ -11,12 +11,13 @@ class FetchPlates
     finished at #{end_time},
     and last #{duration} seconds"
     @log.close
+    puts 'Fetch Plates task was executed sucessfuly'
   end
 
   def main
     response = parse_response
     plates = get_data(response)
-    update_db(plates) unless is_plate_already_esists? plates["plate_#{1}"][:bid_date_greg]
+    update_db(plates) unless is_plate_already_esists? plates[:date]
   rescue Exception => e
     @log.info "ERROR in main task: #{e}"
   end
@@ -38,6 +39,7 @@ class FetchPlates
   def get_data(plates)
     plateNumber = 1
     plates_hash = {}
+    plates_hash[:date] = (Date.parse(plates[5].css('td')[4].text.gsub!("هـ", ""))).to_greg
     plates.each do |plate|
       plateNumber += 1
       n = [1,2] # skip the empty cells

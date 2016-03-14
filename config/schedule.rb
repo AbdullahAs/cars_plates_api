@@ -19,10 +19,10 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 1.day, at: '11:30am' do
-  rake 'app:fetch_plates'
-end
+# every 1.day, at: '11:30am' do
+#   rake 'app:fetch_plates'
+# end
 
-every 5.minutes do
+every 2.hours do
   rake 'app:fetch_plates'
 end
