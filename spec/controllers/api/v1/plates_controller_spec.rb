@@ -21,4 +21,18 @@ RSpec.describe Api::V1::PlatesController, type: :controller do
 
     it { should respond_with 200 }
   end
+
+  describe 'GET #show' do
+    before do
+      plate = FactoryGirl.create :plate
+      get :show, params: { id: plate.id }
+    end
+
+    it 'returns information about a spesific plate' do
+      plate_response = json_response[:plate]
+      expect(plate_response[:letters_en]).to be_present
+    end
+
+    it { should respond_with 200 }
+  end
 end
