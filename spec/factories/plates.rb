@@ -22,5 +22,6 @@ FactoryGirl.define do
     min_price "500.00"
     bid_date_hejri "2016-03-13"
     bid_date_greg "2016-03-13"
+    sold false
   end
 end

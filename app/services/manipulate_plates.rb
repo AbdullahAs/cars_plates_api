@@ -1,10 +1,15 @@
 class ManipulatePlates
 
   def sold
-    p 'sold'
+    plates = Plate.last(50)
+    plates.each do |plate|
+      plate.check_availability
+    end
+    puts 'plates:sold task was executed sucessfuly'
   end
 
   def letters
-    p 'letters'
+
+    puts 'plates:letters task was executed sucessfuly'
   end
 end

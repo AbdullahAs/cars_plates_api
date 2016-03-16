@@ -101,3 +101,31 @@ describe '.search' do
   #   end
   # end
 end
+
+describe '.check_availability' do
+  before do
+    @plate1 = FactoryGirl.create :plate,  bid_date_greg: Date.tomorrow,
+                                          sold: false
+    @plate2 = FactoryGirl.create :plate,  bid_date_greg: Date.today,
+                                          sold: false
+  end
+
+  it 'change the plate to sold if due date passed' do
+    @plate1.check_availability
+    @plate2.check_availability
+    expect(@plate2.sold).to be_truthy
+  end
+end
+
+describe '.generate_english_letters' do
+  before do
+    @plate = FactoryGirl.create :plate,  letters_ar: 'أ أ أ',
+                                          letters_en: ''
+    FactoryGirl.create :trnaslate
+  end
+
+  it 'return the english letter based on the atabic letter values' do
+    @plate.generate_english_letters
+    expect(@plate.letters_en).to eql('A A A')
+  end
+end

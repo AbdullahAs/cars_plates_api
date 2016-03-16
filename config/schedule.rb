@@ -27,6 +27,10 @@ every 2.hours do
   rake 'plates:fetch'
 end
 
+every 1.day, at: '3:00am' do
+  rake 'plates:sold'
+end
+
 # every 1.minute do
 #   rake 'app:fetch_plates'
 # end

@@ -36,4 +36,13 @@ class Plate < ApplicationRecord
     plates = plates.available if params[:available].present?
     plates
   end
+
+  def check_availability
+    update(sold: true) if bid_date_greg <= Date.today
+  end
+
+  def generate_english_letters
+    p letters_en = Trnaslate.translate(self.letters_ar)
+    update(letters_en: letters_en)
+  end
 end
