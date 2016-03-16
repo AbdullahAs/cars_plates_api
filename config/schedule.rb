@@ -24,7 +24,7 @@
 # end
 
 every 2.hours do
-  rake 'app:fetch_plates'
+  rake 'plates:fetch'
 end
 
 # every 1.minute do
